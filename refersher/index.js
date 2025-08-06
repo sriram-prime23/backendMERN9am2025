@@ -39,6 +39,80 @@ const arr = [1, 2, 3, 4, 5];
 // body.innerHTML = 'Welcome to my MERN stack class!';
 
 
+//  fetch("https://api.github.com/users/arun-cloud-dev/followers")
+
+//  .then(response => response.json())
+
+//  .then(data => {
+//     console.log(data);
+//  })
+//     .catch(error => {
+//         console.error('Error fetching data:', error);
+//     });
+
+
+
+
+
+
+
+// let myPromise = new Promise((resolve, reject) => {
+//     let success = true;
+//     if (success) {
+//         resolve("Promise resolved successfully!");
+//     }else {
+//         reject("Promise rejected ....")
+//     }
+// })
+// myPromise 
+// .then(result => {
+//     console.log(result);
+
+// })
+// .catch(error => {
+//     console.error('Error:', error);
+// });
+
+
+
+//getgithub followers
+
+function getGithubUser(){
+    return new Promise((resolve, reject) => {
+        fetch("https://api.github.com/users/arun-cloud-dev/followers")
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {resolve(data)
+        })
+
+        .catch(error => {
+            reject('Error fetching data: ' + error.message);
+        });
+    })
+}
+
+//use promise 
+
+getGithubUser("")
+
+.then(userData =>{
+    console.log('github user data:', userData.login);
+    console.log('Public Repos:',
+    userData.public_repos);
+})
+
+
+
+.catch(error => {
+    console.error('Error:', error);
+    
+})
+
 
 
 
