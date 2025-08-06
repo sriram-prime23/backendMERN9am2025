@@ -72,10 +72,7 @@ const arr = [1, 2, 3, 4, 5];
 // .catch(error => {
 //     console.error('Error:', error);
 // });
-
-
-
-//getgithub followers
+//getGithub followers
 
 function getGithubUser(){
     return new Promise((resolve, reject) => {
@@ -95,22 +92,15 @@ function getGithubUser(){
         });
     })
 }
-
 //use promise 
-
 getGithubUser("")
-
 .then(userData =>{
     console.log('github user data:', userData.login);
     console.log('Public Repos:',
     userData.public_repos);
 })
-
-
-
 .catch(error => {
     console.error('Error:', error);
-    
 })
 
 
