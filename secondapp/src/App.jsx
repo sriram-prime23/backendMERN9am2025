@@ -3,26 +3,17 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 import './App.css'
-import Home from './home'
+import Tre from './Tre'
+
 
 function App() {
   const [count, setCount] = useState(0)
   return (
 
     <>
-
-
-<Home />
-
-<Home /><Home /><Home /><Home /><Home /><Home /><Home />
-
-    <button onClick={() => setCount( count +1 )}> Increment {count} </button>
-    <button onClick={() => setCount( count -1 )}> Decrement {count} </button>
-
-    <button onClick={() => setCount(0)}> Reset Count </button>
-
+<h1>agds</h1>
+<Tre />
     </>
-  
   )
 }
 
