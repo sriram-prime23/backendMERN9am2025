@@ -1,3 +1,15 @@
+import  componentsImg  from "../assets/components.png";
+import stateImg from "../assets/state-mgmt.png";
+import jsxImg from "../assets/jsx-ui.png";
+import propsImg from "../assets/config.png";
+
+
+
+
+
+
+
+
 export const CORE_CONCEPTS = [
     {
         image : componentsImg,
@@ -22,11 +34,6 @@ export const CORE_CONCEPTS = [
         title : "Props",
         description:
         "Short for properties, props are how data is passed from parent to child components"
-    },
-    {
-        image : hooksImg,
-        title : "Hooks",
-        description:
-        "Functions that let you use state and other React features without writing a class"
     }
+   
 ]

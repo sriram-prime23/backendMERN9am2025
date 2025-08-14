@@ -1,42 +1,9 @@
-import reactImg from './assets/react-core-concepts.png';
-import componentsImg from './assets/components.png';
 
-const reactDescription = ['Fundamental', "core", "concepts", "crucial"]
+// import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './assets/data';
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-function CoreConcept(props) {
-  return (
-
-    <li>
-      <img src={props.image} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </li>
-  )
-}
-
-function Header() {
-  const des = reactDescription[getRandomInt(reactDescription.length)];
-
-  return (
-    <header>
-      <img src={reactImg} alt="" />
-      <h1>React Essentials </h1>
-
-      <p>
-        {des} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-
-
-
-  )
-}
-
+import Header from './components/Header';
+import CoreConcept from './components/CoreConcepts';
 
 
 function App() {
@@ -46,31 +13,23 @@ function App() {
       <main>
         <h2>Time to get started!</h2>
       </main>
-
       <section id='core-concepts'>
         <h2>Core Concepts </h2>
         <ul>
           <CoreConcept
-            image={reactImg}
-            title="component"
-            description="Build encapsulated components that manage their own state"
+          title={CORE_CONCEPTS[0].title}
+          image={CORE_CONCEPTS[0].image}
+          description={CORE_CONCEPTS[0].description}
           />
 
           <CoreConcept
-            image={componentsImg}   
-            title="Declarative"
-            description="Describe what your UI should look like"
+          {...CORE_CONCEPTS[1]}
           />
           <CoreConcept
-            image={componentsImg}
-            title="Learn Once, Write Anywhere"
-            description="You can build new features in React without rewriting existing code"
+          {...CORE_CONCEPTS[2]}
           />
-
         </ul>
       </section>
-
-
     </div>
   );
 }
