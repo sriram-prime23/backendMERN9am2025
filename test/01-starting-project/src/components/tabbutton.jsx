@@ -1,20 +1,21 @@
-export default function TabButton ({children}){
-    
+export default function TabButton ({children, onSelect}){
+
 
 // document.querySelector('button').addEventListener('click', () => {
 //         console.log('Button clicked!');
 //     });
 
-function handleClick(){
+// function handleClick(){
+//     console.log("hello SLA people");
+    
+// 
+console.log('TabButton Component Exicuting ');
 
 
-    
-    console.log("hello SLA people");
-    
-}
+
 
     return (
         <li>
-            <button onClick={handleClick}>{children}</button></li>
+            <button onClick={onSelect}>{children}</button></li>
     )
 }
