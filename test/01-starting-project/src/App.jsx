@@ -2,28 +2,27 @@ import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/coreconcepts/CoreConcepts.jsx';
 import TabButton from './components/tabbutton.jsx';
-import { useState } from 'react';
+
 
 
 
 
 
 function App() {
-
-const [selectedTopic, setSelectedTopic] = useState("Please select Button");
-
-  function handleSelect(selectedButton) {
-    // tabContent = selectedButton
-    // selectedButton => 'components' , "jsx", "Props", "State"
-    // console.log(tabContent);
+  
 
 
-    setSelectedTopic(selectedButton)
-    
+ let tabContent  = "Please select a tab to view content";
+
+   function handleSelect(selectedButton) {
+
+    tabContent = selectedButton
+    console.log(tabContent);
+  
   }
 
 
-  console.log("app component Exicuting");
+
   
 
   return (
@@ -52,8 +51,7 @@ const [selectedTopic, setSelectedTopic] = useState("Please select Button");
               <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
 
-          {selectedTopic}
-
+          {tabContent}
 
          
           
