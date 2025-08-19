@@ -12,7 +12,7 @@ import { EXAMPLES } from './data.js'
 
 function App() {
 
-  const [selectedTopic, setSelectedTopic] = useState('Please Click a Button')
+  const [selectedTopic, setSelectedTopic] = useState('components');
 
   let tabContent = "Please select a tab to view content";
 
@@ -49,10 +49,10 @@ function App() {
 
           <div id='tab-content'>
             <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description} </p>
+            <p>{EXAMPLES[selectedTopic].description}</p>
             <pre>
               <code>
-
+                {EXAMPLES[selectedTopic].code}
               </code>
             </pre>
 
