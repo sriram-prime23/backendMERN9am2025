@@ -9,8 +9,6 @@ export default function TabButton ({children, onSelect}){
 //     console.log("hello SLA people");
     
 // 
-console.log('TabButton Component Exicuting ');
-
 
 
 

@@ -12,13 +12,13 @@ import { EXAMPLES } from './data.js'
 
 function App() {
 
-  const [text, settext] = useState('Please Click a Button')
+  const [selectedTopic, setSelectedTopic] = useState('Please Click a Button')
 
   let tabContent = "Please select a tab to view content";
 
   function handleSelect(selectedButton) {
 
-    settext(selectedButton)
+    setSelectedTopic(selectedButton)
   }
 
   return (
@@ -48,8 +48,8 @@ function App() {
           </menu>
 
           <div id='tab-content'>
-            <h3>Title </h3>
-            <p>description</p>
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description} </p>
             <pre>
               <code>
 
