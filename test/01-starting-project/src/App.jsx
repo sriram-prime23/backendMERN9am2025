@@ -1,30 +1,38 @@
-import { CORE_CONCEPTS } from './data.js';
+import { CORE_CONCEPTS, EXAMPLES } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/coreconcepts/CoreConcepts.jsx';
 import TabButton from './components/tabbutton.jsx';
 import { useState } from 'react';
-import { EXAMPLES } from './data.js'
-
-
-
-
-
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState(null);
 
-  const [selectedTopic, setSelectedTopic] = useState('components');
+  const [active , setActive] = useState(false)
 
-  let tabContent = "Please select a tab to view content";
-
+  
   function handleSelect(selectedButton) {
+    setSelectedTopic(selectedButton);
+  }
 
-    setSelectedTopic(selectedButton)
+  let tabContent = <p>Please Select a topic</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
   }
 
   return (
     <div>
       <Header />
       <main>
+        {/* Core Concepts Section */}
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
@@ -38,33 +46,65 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-        <section id='examples'>
+
+        {/* Examples Section */}
+        <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onSelect={() => handleSelect('components')}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onSelect={() => handleSelect('jsx')}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onSelect={() => handleSelect('props')}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onSelect={() => handleSelect('state')}
+            >
+              State
+            </TabButton>
           </menu>
 
-          <div id='tab-content'>
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>
-                {EXAMPLES[selectedTopic].code}
-              </code>
-            </pre>
-
-           
-       
-          </div>
-
-
+          {tabContent}
         </section>
+
+
+
+    
+    
+        <div style={{padding:"20px"}}>
+            <button 
+            onClick={()=> setActive(!active)}
+            className={active ? "btn-active": "btn-inactive"}>
+                {active ? "Active" : "Inactive"}
+            </button>
+        </div>
+
+        
       </main>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
