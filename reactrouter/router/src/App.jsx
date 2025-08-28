@@ -7,16 +7,46 @@ import About from './components/About'
 import { PageNotFound } from './components/PageNotFound'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="about">About</Link>|{" "}
-        <Link to="contact">Contact</Link>|{" "}
-        <Link to="login">Login</Link>
-      </nav>
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo */}
+        <div className="text-2xl font-bold text-blue-600">
+          MyApp
+        </div>
+
+        {/* Links */}
+        <div className="space-x-6">
+          <Link 
+            to="/" 
+            className="text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            Home
+          </Link>
+          <Link 
+            to="/about" 
+            className="text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact" 
+            className="text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            Contact
+          </Link>
+          <Link 
+            to="/login" 
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          >
+            Login
+          </Link>
+        </div>
+      </div>
+    </nav>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/contact' element={<Contact/>}/>
