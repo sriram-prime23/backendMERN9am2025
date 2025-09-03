@@ -20,10 +20,11 @@ export default function Login() {
     }));
   }
 
-  function handleReset() {
-    setEnteredValues({ email: '', password: '' });
-    setSubmittedData(null);
+  function handleReset (){
+    setEnteredValues({email:"" , password:''})
+    setSubmittedData(null)
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -62,6 +63,7 @@ export default function Login() {
           type="button"
           className="button button-flat"
           onClick={handleReset}
+          
         >
           Reset
         </button>
