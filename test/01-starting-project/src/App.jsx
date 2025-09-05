@@ -7,13 +7,13 @@ import { useState } from 'react';
 function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
-<<<<<<< Updated upstream
+ Updated upstream
   const [active , setActive] = useState(false)
-=======
+
   const [selectedTopic, setSelectedTopic] = useState('jsx')
 
   let tabContent = "Please select a tab to view content";
->>>>>>> Stashed changes
+ Stashed changes
 
   
   function handleSelect(selectedButton) {
